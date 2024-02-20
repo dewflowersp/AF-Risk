@@ -15,12 +15,7 @@ class Auth:
                 self.config['cookie']['expiry_days'],
                 self.config['preauthorized']
             )
-
-
-    def init(self, location='main'):
-        name, authentication_status, username = self.authenticator.login(location=location)
-        
-        return name, authentication_status, username
+            self.authenticator.login()
 
 
     def logout(self, location='main'):
@@ -33,7 +28,7 @@ class Auth:
 
     def check_credentials(self, st):
         if st.session_state["authentication_status"]:
-            with st.sidebar:
+            with st.sidebar.container():
                 st.write(f'Welcome *{st.session_state["name"]}*')
                 self.logout()
             return True
