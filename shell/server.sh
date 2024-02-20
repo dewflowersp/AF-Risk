@@ -1,1 +1,1 @@
-streamlit run --server.port 8550 app.py
+streamlit run --server.port 8550 Home.py
